@@ -172,7 +172,7 @@ Use the Top 5 Products chart to compare the displayed sales amounts of the leadi
 
 The dashboard has been published through Microsoft Power BI Service. Tap on the link below to explore the Live Dashboard.
 
-**Published dashboard:** <iframe title="Chocolate-sales_dashboard" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiYzFkZTQxNjgtOGI4ZS00ZDJiLWE0ZDYtZDVkM2QyODU4ODc3IiwidCI6IjEwNGQ4MDQ4LWZkMGMtNDNkNS1hNjMwLWZjNjI5ZTVkYWI1OSJ9" frameborder="0" allowFullScreen="true"></iframe>
+**[Open the Live Chocolate Sales dashboard]: (https://app.powerbi.com/view?r=eyJrIjoiYzFkZTQxNjgtOGI4ZS00ZDJiLWE0ZDYtZDVkM2QyODU4ODc3IiwidCI6IjEwNGQ4MDQ4LWZkMGMtNDNkNS1hNjMwLWZjNjI5ZTVkYWI1OSJ9)**
 
 For the best viewing experience, open the dashboard on a desktop or laptop and use Power BI's full-screen option where available.
 
