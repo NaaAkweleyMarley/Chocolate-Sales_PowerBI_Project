@@ -25,7 +25,7 @@ The dashboard was created to explore five main questions:
 
 | Chocolate Sales Dashboard |
 |---|
-| ![Chocolate Sales Dashboard](screenshots/Chocolate-Sales.png) |
+| ![Chocolate Sales Dashboard](screenshot/Chocolate-Sales.png) |
 
 #### Dashboard Components
 
