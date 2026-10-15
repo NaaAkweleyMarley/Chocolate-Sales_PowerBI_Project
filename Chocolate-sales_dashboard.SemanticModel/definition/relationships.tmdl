@@ -1,0 +1,21 @@
+relationship b36fb6fd-a61e-458d-9705-7e791db8dfa2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: calendar.cal_date
+	toColumn: LocalDateTable_3c0aa6bb-1101-4f3e-8f42-50220e1f9530.Date
+
+relationship AutoDetected_cfcbfacd-8c3a-4eec-9052-efda773498a3
+	fromColumn: shipments.GID
+	toColumn: locations.GID
+
+relationship AutoDetected_a3e2b6e0-437f-4e31-9308-b39ac55eb798
+	fromColumn: shipments.SPID
+	toColumn: people.SPID
+
+relationship AutoDetected_2daddbda-155e-4a93-b8be-1ebf985e0c25
+	fromColumn: shipments.PID
+	toColumn: products.PID
+
+relationship 5345575a-79ea-7f43-6c16-1bdc0661c5a5
+	fromColumn: shipments.Shipdate
+	toColumn: calendar.cal_date
+

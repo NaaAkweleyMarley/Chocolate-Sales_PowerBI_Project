@@ -1,0 +1,118 @@
+table shipments
+	lineageTag: 37f4fe01-d59d-483c-96b9-bbae46b3f493
+
+	measure 'Total Sales Amount' = SUM(shipments[Amount])
+		lineageTag: 18106e60-a1d9-4256-a43c-c920ce88601a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Boxes Shipped' = SUM(shipments[Boxes])
+		formatString: 0
+		lineageTag: cedc080b-7371-4460-86fb-8e9afee8f476
+
+	measure 'Avg Cost per Box' = AVERAGE(products[Cost_per_box])
+		lineageTag: bed35b8d-2119-45c6-971f-d2d4f129f91f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Top Performing Salesperson' = ```
+			
+			VAR TopPerson =
+			    TOPN(
+			        1,
+			        SUMMARIZE(
+			            people,
+			            people[Sales_person],
+			            "PersonSales", [Total Sales Amount]
+			        ),
+			        [PersonSales],
+			        DESC
+			    )
+			RETURN
+			    CONCATENATEX(TopPerson, people[Sales_person], ", ")
+			
+			```
+		lineageTag: c17c5af7-f7ba-41ad-96c6-27350206c73b
+
+	column ShipmentID
+		dataType: string
+		lineageTag: 4e8f42ef-1326-4549-8829-14f84bc009b9
+		summarizeBy: none
+		sourceColumn: ShipmentID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SPID
+		dataType: string
+		lineageTag: 04933f71-c872-4ef8-af64-672f09b94e33
+		summarizeBy: none
+		sourceColumn: SPID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PID
+		dataType: string
+		lineageTag: 7c0df8e5-cc6a-41ca-aa6a-7de87e594312
+		summarizeBy: none
+		sourceColumn: PID
+
+		annotation SummarizationSetBy = Automatic
+
+	column GID
+		dataType: string
+		lineageTag: 84bd475d-c3a4-443d-8667-bae6419dc49f
+		summarizeBy: none
+		sourceColumn: GID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Shipdate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d9a9b274-bd2f-44ce-a6fd-f8ee03d25d7f
+		summarizeBy: none
+		sourceColumn: Shipdate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Amount
+		dataType: double
+		lineageTag: 32c7497d-e65e-4b52-a42d-344c642d7a85
+		summarizeBy: sum
+		sourceColumn: Amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Boxes
+		dataType: int64
+		formatString: 0
+		lineageTag: 15260ffc-8a90-4e20-a035-b51cf2d115cc
+		summarizeBy: sum
+		sourceColumn: Boxes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Order_Status
+		dataType: string
+		lineageTag: ab871df8-d9cc-4da4-af2b-107294590f55
+		summarizeBy: none
+		sourceColumn: Order_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition shipments = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\akwel\OneDrive\Desktop\GROW DA\Power BI\sample-chocolate-sales-data-all.xlsx"), null, true),
+				    shipments_Table = Source{[Item="shipments",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(shipments_Table,{{"ShipmentID", type text}, {"SPID", type text}, {"PID", type text}, {"GID", type text}, {"Shipdate", type date}, {"Amount", type number}, {"Boxes", Int64.Type}, {"Order_Status", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

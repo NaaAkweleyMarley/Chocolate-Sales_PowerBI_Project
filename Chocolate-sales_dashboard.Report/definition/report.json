@@ -1,0 +1,102 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY24SU10",
+      "reportVersionAtImport": {
+        "visual": "1.8.95",
+        "report": "2.0.95",
+        "page": "1.3.95"
+      },
+      "type": "SharedResources"
+    }
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "publicCustomVisuals": [
+    "WordCloud1447959067750"
+  ],
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "CY24SU10",
+          "path": "BaseThemes/CY24SU10.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "LogoMakr-1v6kow2085987352997517.png",
+          "path": "LogoMakr-1v6kow2085987352997517.png",
+          "type": "Image"
+        },
+        {
+          "name": "LogoMakr-2258pz5336228234951692.png",
+          "path": "LogoMakr-2258pz5336228234951692.png",
+          "type": "Image"
+        },
+        {
+          "name": "LogoMakr-4t344a7401761179907556.png",
+          "path": "LogoMakr-4t344a7401761179907556.png",
+          "type": "Image"
+        },
+        {
+          "name": "LogoMakr-6x8ha9483458724426473.png",
+          "path": "LogoMakr-6x8ha9483458724426473.png",
+          "type": "Image"
+        },
+        {
+          "name": "LogoMakr-8pkyag504393057672555.png",
+          "path": "LogoMakr-8pkyag504393057672555.png",
+          "type": "Image"
+        },
+        {
+          "name": "nmp2829964404220229.png",
+          "path": "nmp2829964404220229.png",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true
+  }
+}

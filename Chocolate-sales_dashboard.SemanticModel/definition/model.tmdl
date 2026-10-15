@@ -1,0 +1,24 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-GH
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["calendar","locations","people","products","shipments"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table calendar
+ref table DateTableTemplate_f4ba4002-5a44-4910-add0-f48d23f514a7
+ref table LocalDateTable_3c0aa6bb-1101-4f3e-8f42-50220e1f9530
+ref table locations
+ref table people
+ref table products
+ref table shipments
+
+ref cultureInfo en-US
+

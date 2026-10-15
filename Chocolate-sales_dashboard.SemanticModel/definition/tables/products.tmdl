@@ -1,0 +1,49 @@
+table products
+	lineageTag: 05662fe0-d595-4223-9520-4cb894243e6f
+
+	column Product
+		dataType: string
+		lineageTag: 8a78d445-c1d7-4e1d-b4fb-7c311e71493b
+		summarizeBy: none
+		sourceColumn: Product
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: e5bc7750-f3eb-4009-bdad-a7f99f3e1b2f
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cost_per_box
+		dataType: double
+		lineageTag: 5a15369f-3f48-421c-9382-ad37de82e1d8
+		summarizeBy: none
+		sourceColumn: Cost_per_box
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PID
+		dataType: string
+		lineageTag: d0a792d5-dab2-46f0-9306-966912344b1b
+		summarizeBy: none
+		sourceColumn: PID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition products = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\akwel\OneDrive\Desktop\GROW DA\Power BI\sample-chocolate-sales-data-all.xlsx"), null, true),
+				    products_Table = Source{[Item="products",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(products_Table,{{"Product", type text}, {"Category", type text}, {"Cost_per_box", type number}, {"PID", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

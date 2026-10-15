@@ -1,0 +1,39 @@
+table locations
+	lineageTag: 60fdb71d-01d4-42dd-b6c0-8dce5a4f8076
+
+	column Geo
+		dataType: string
+		lineageTag: 8dda519a-ad8c-4df6-8ec0-024f7bc9fac4
+		summarizeBy: none
+		sourceColumn: Geo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: c7e7ab86-c162-4d1a-b54c-46b94f1503f8
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column GID
+		dataType: string
+		lineageTag: 2c503c37-8a82-4d6c-8af6-06aab060c19f
+		summarizeBy: none
+		sourceColumn: GID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition locations = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\akwel\OneDrive\Desktop\GROW DA\Power BI\sample-chocolate-sales-data-all.xlsx"), null, true),
+				    locations_Table = Source{[Item="locations",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(locations_Table,{{"Geo", type text}, {"Region", type text}, {"GID", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
